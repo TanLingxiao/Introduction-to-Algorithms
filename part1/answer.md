@@ -69,3 +69,57 @@ end for
 * 2.2-4
 
 可以通过修改使算法专门处理有效的最佳输入以使其具有最佳情况的运行时间。
+
+* 2.3-1
+
+1. [3, 41] [26, 52] [38, 57] [9, 49]
+2. [3, 26, 41, 52] [9, 38, 49, 57]
+3. [3, 9, 26, 38, 41, 49, 52, 57]
+
+* 2.3-3
+
+1. $T(n/2)=2T(n/2^2)+n/2$
+2. $T(n/2^2)=2T(n/2^3)+n/2^2$
+3. $T(n)=2T(n/2)+n=2^2T(n/2^2)+2*n/2+n=2^3T(n/2^3)+2^2*n/2^2+2*n/2+n
+    =2^kT(1)+kn=nT(1)+kn=n(logn+T(1))=o(nlogn)$
+
+* 2.3-4
+
+$T(n) = T(n-1) + 1$, 其中$T(n)=O(n^2)$
+
+* 2.3-5
+```
+Input: A sorted array A and a value v
+Output: An index i such that v = A[i] or nil.
+if p >= r and v!= A[p] then
+    return nil
+end if
+A[(r-p)/2] to j
+if v = A[j] then
+    return j
+else
+    if v < A[j] then
+        return BINARY-SEARCH(A; v; p; j)
+    else
+        return BINARY-SEARCH(A; v; j; r)
+    end if
+end if
+```
+
+* 2.3-6
+
+可以
+
+* 2.3-7
+```
+Input: An array A and a value x.
+Output: A boolean value indicating if there is two elements in A whose sum is x.
+A SORT(A)
+n length[A]
+for i to n do
+    if A[i] > 0 and BINARY-SEARCH(A; A[i] - x; 1; n) then
+        return true
+    end if
+end for
+return false
+```
