@@ -15,8 +15,10 @@ class Stack:
         return self.stack[-1]
 
 
-stack = Stack()
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.pop()
+if __name__ == '__main__':
+
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    stack.pop()
